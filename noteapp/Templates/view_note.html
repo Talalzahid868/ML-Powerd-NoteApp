@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ note.title }}</h2>
+    <p class="lead">{{ note.content }}</p>
+    <hr>
+    <p><strong>Category:</strong> {{ note.category }}</p>
+    <p><strong>Summary:</strong> {{ note.summary }}</p>
+    <p><strong>Keywords:</strong> {{ note.keywords }}</p>
+    
+
+    <form action="{{ url_for('delete_note', note_id=note.id) }}" method="POST" class="mt-3">
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">Back</a>
+        
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>
+{% endblock %}

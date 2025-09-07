@@ -1,0 +1,24 @@
+{% extends "Layout.html" %}
+{% block content %}
+    <div class="text-center">
+        <h1 class="mb-3">Welcome to AI Notes App</h1>
+        <p class="lead">Organize, summarize, and analyze your notes with AI.</p>
+        {% if current_user.is_authenticated %}
+            <a class="btn btn-primary" href="{{ url_for('account') }}">Go to Dashboard</a>
+        {% else %}
+            <a class="btn btn-primary" href="{{ url_for('login') }}">Login</a>
+            <a class="btn btn-secondary" href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
