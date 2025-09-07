@@ -7,6 +7,8 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
 import pickle,os
+
+# Rules Based Approach
 # def auto_tag(text):
 #     categories={
 #         'Work':['meeting','project','deadline','client','report','presentation'],
@@ -22,7 +24,7 @@ import pickle,os
 #                 return key
 #     return "General"
 
-
+# Ml-Based Auto Categorization
 model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
 with open(model_path, "rb") as f:
     model = pickle.load(f)
@@ -39,7 +41,7 @@ category_map = {
 def auto_tag(text):
     pred=model.predict([text])
     return category_map.get(pred[0],"General")
-print(auto_tag("Samsung releases new phone in the rivalary of iphone"))
+
    
     
 
