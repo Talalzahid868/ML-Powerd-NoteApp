@@ -19,6 +19,11 @@
                     {{ form.remember.label(class="form-check-label")}} 
                 </div>
             {{ form.submit(class="btn btn-primary") }}
+            <div class="mb-3">
+                <small class="text-muted ml-2">
+                <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
+            </small>
+            </div>
         </form>
     </div>
 </div>
