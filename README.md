@@ -1,4 +1,4 @@
-# MlL-Powerd-NoteApp
+# ML-Powerd-NoteApp
 
 An Ml-powered note-taking web application where users can create an account, add notes, and automatically get **categories, summaries, and keywords** for their notes.  
 Built with **Flask, SQLAlchemy, and Machine Learning**.
