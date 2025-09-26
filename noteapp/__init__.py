@@ -14,7 +14,7 @@ app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///site.db"
 db=SQLAlchemy(app)
 bcrypt=Bcrypt(app)
 login_manager=LoginManager(app)
-login_manager.login_view='login'
+login_manager.login_view='user.login'
 login_manager.login_message_category="info"
 
 
@@ -25,7 +25,18 @@ app.config["MAIL_USERNAME"]=os.environ.get('EMAIL_USER')
 app.config["MAIL_PASSWORD"]=os.environ.get('EMAIL_PASS')
 mail=Mail(app)
 
-from noteapp import routes,models
+from noteapp.main.routes import main
+from noteapp.note.routes import note
+from noteapp.user.routes import user
+from noteapp.error.handler import errors
+
+app.register_blueprint(main)
+app.register_blueprint(note)
+app.register_blueprint(user)
+app.register_blueprint(errors)
+
+
+
 
 
 
